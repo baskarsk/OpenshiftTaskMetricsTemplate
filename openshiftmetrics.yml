@@ -280,6 +280,22 @@ items:
       type: ImageChange
   status: {}
 - apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: null
+    name: config
+  spec:
+    ports:
+    - name: 8888-tcp
+      port: 8888
+      targetPort: 8888
+    selector:
+      deploymentconfig: config
+    status:
+        loadBalancer: {}
+    kind: List
+    metadata: {}  
+- apiVersion: v1
   kind: ImageStream
   metadata:
     creationTimestamp: null
